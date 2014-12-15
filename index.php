@@ -1,4 +1,4 @@
-<?include 'header.php'?>
+<?include '_header.php'?>
 
 <h1>List of webforms nodes</h1>
 <?
@@ -11,4 +11,4 @@ while($row = mysql_fetch_assoc($rs)) {
 }
 ?>
 
-<?include 'footer.php'?>
+<?include '_footer.php'?>

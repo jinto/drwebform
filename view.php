@@ -1,4 +1,4 @@
-<?include 'header.php'?>
+<?include '_header.php'?>
 
 <h1>Mail Sender</h1>
 <?
@@ -52,4 +52,4 @@ mysql_close($link);
 ?>
 
 
-<?include 'footer.php'?>
+<?include '_footer.php'?>
