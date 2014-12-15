@@ -2,7 +2,7 @@
 
 <h1>List of webforms nodes</h1>
 <?
-$q = "SELECT * from node where type='request_content'";
+$q = "SELECT nid, title from node where type='request_content'";
 
 $rs = mysql_query($q) or die(mysql_error());
 
