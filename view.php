@@ -7,11 +7,25 @@ $page_id = $_GET['page_id'];
 $q = "SELECT * FROM field_data_body WHERE entity_id =".$page_id;
 $rs = mysql_query($q) or die(mysql_error());
 $row = mysql_fetch_assoc($rs);
-echo $row['body_value']."<br>";
 
+
+$nr = array("\r\n", "\n", "\r");
+$br = '<br/>';
+?>
+
+<hr/>
+
+<?=str_replace($nr, $br, $row['body_value']);?>
+
+<hr/>
+
+
+<?
 $q = "SELECT * FROM field_data_field_target_email_address WHERE entity_id =".$page_id;
 $rs = mysql_query($q) or die(mysql_error());
 $row = mysql_fetch_assoc($rs);
+?>
+<?
 echo $row['field_target_email_address_value']."<br>";
 
 $q = "SELECT * FROM webform_submitted_data WHERE data = ".$page_id;
@@ -43,7 +57,7 @@ $totalrows = mysql_num_rows($rs);
 while($row = mysql_fetch_assoc($rs)) {
    if($prev != $row['sid']){
 	   echo "<hr>";
-	   echo date('Y/m/j',$row['submitted'])."<br>";
+	   echo date('Y/m/j H:i:s',$row['submitted'])."<br>";
 	}
    echo $row['name'].":".$row['data']."<br>";
    $prev = $row['sid'];
