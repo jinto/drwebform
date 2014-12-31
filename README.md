@@ -15,10 +15,10 @@ config
 ======
 put below to apache config
 
- SetEnv DRUPALDB databasename
+ 'SetEnv DRUPALDB databasename
  SetEnv DRUPALDBUSER dbusername
  SetEnv DRUPALDBPWD dbpassword
  SetEnv MESSAGEHEADER mail subject prefix
  SetEnv MESSAGETOP    mail body header
  SetEnv MESSAGESENDER mail sender
- SetEnv DRUPALSERVER drupal-domain.com
+ SetEnv DRUPALSERVER drupal-domain.com'
