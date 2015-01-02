@@ -18,6 +18,7 @@ $rs = mysql_query($q) or die(mysql_error());
 
 $row = mysql_fetch_assoc($rs);
 $title = getenv('MESSAGEHEADER')." ".$row['title'];
+$title = '=?utf-8?b?'.base64_encode($title).'?=';
 
 $q = "SELECT * FROM field_data_body WHERE entity_id =".$page_id;
 $rs = mysql_query($q) or die(mysql_error());
@@ -34,7 +35,8 @@ $row = mysql_fetch_assoc($rs);
 ?>
 <h4>mail target list</h4>
 <?
-echo $row['field_target_email_address_value']."<br>";
+$target=$row['field_target_email_address_value'];
+echo $target."<br>";
 
 $q = "SELECT * FROM webform_submitted_data WHERE data = ".$page_id;
 $rs = mysql_query($q) or die(mysql_error());
@@ -70,8 +72,9 @@ while($row = mysql_fetch_assoc($rs)) {
 }
 
 
-$to      = 'target@target.comom'
-$headers = 'From: '.getenv('MESSAGESENDER')."\r\n" ;
+//$to      = 'target@target.comom'
+$to      = $target;
+$headers = "From: =?utf-8?b?".base64_encode(getenv('SENDERNAME'))."?= <".getenv('SENDERADDR').">\r\n" ;
 mail($to, $title, $messagebody, $headers);
 
 $date = date('Y-m-d H:i:s');
