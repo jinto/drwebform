@@ -38,7 +38,7 @@ $row = mysql_fetch_assoc($rs);
 //echo "[".$row['data']."]<br>";
 
 ?>
-<h4>link </h4> <a href=http://soyeon.org/?q=do/<?=$page_id?>>http://soyeon.org/?q=do/<?=$page_id?></a>
+<h4>link </h4> <a href=http://<?=getenv('DRUPALSERVER')?>/?q=do/<?=$page_id?>>http://<?=getenv('DRUPALSERVER')?>/?q=do/<?=$page_id?></a>
 
 <a class="glyphicon glyphicon-envelope btn btn-default" href='send.php?page_id=<?=$page_id?>'>send mail</a></span>
 <h4>sent log</h4>
